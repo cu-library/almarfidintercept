@@ -1,0 +1,25 @@
+builds:
+  - 
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    goarch:
+      - amd64
+archives:
+  -
+    wrap_in_directory: true
+checksum:
+  name_template: 'checksums.sha256'
+  algorithm: sha256
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
+gitea_urls:
+  api: https://gitea.library.carleton.ca/api/v1/
+  download: https://gitea.library.carleton.ca
